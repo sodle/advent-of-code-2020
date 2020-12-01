@@ -17,7 +17,7 @@ def part2(expenses: [int]) -> int:
 
 
 if __name__ == "__main__":
-    puzzle_input = read_input()
+    puzzle_input = read_input(__file__)
 
     print(f"Part 1: {part1(puzzle_input)}")
     print(f"Part 2: {part2(puzzle_input)}")

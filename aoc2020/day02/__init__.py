@@ -24,11 +24,7 @@ def valid_part2(entry: str) -> bool:
     char_a = haystack[index_a - 1]
     char_b = haystack[index_b - 1]
 
-    match_a = char_a == needle
-    match_b = char_b == needle
-
-    # xor
-    return match_a != match_b
+    return (char_a == needle) ^ (char_b == needle)
 
 
 def part1(entries: [str]) -> int:

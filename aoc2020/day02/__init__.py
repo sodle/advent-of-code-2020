@@ -1,41 +1,41 @@
-class PasswordEntry(object):
-    min_count: int
-    max_count: int
-    character: chr
-    password: str
+import re
 
-    def __init__(self, text_entry: str):
-        _count_range, _character, self.password = text_entry.split(' ')
+entry_regex = re.compile(r'(\d+)-(\d+) (\w): (\w+)')
 
-        self.min_count, self.max_count = [int(i) for i in _count_range.split('-')]
-        self.character = _character[0]
 
-    @property
-    def is_valid_part1(self) -> bool:
-        matching_chars = [c for c in self.password if c == self.character]
-        num_matching = len(matching_chars)
-        return self.min_count <= num_matching <= self.max_count
+def parse_entry(entry: str) -> (int, int, str, str):
+    lower, upper, needle, haystack = entry_regex.match(entry).groups()
+    return int(lower), int(upper), needle, haystack
 
-    @property
-    def is_valid_part2(self) -> bool:
-        # convert from one- to zero- index
-        position_a = self.min_count - 1
-        position_b = self.max_count - 1
 
-        char_a = self.password[position_a]
-        char_b = self.password[position_b]
+def valid_part1(entry: str) -> bool:
+    min_occurrences, max_occurrences, needle, haystack = parse_entry(entry)
 
-        return (char_a == self.character and char_b != self.character) or (
-                char_b == self.character and char_a != self.character)
+    occurrences = [c for c in haystack if c == needle]
+    num_occurrences = len(occurrences)
+
+    return min_occurrences <= num_occurrences <= max_occurrences
+
+
+def valid_part2(entry: str) -> bool:
+    index_a, index_b, needle, haystack = parse_entry(entry)
+
+    # convert from one-index to zero-index
+    char_a = haystack[index_a - 1]
+    char_b = haystack[index_b - 1]
+
+    match_a = char_a == needle
+    match_b = char_b == needle
+
+    # xor
+    return match_a != match_b
 
 
 def part1(entries: [str]) -> int:
-    parsed_entries = [PasswordEntry(e) for e in entries]
-    valid_entries = [e for e in parsed_entries if e.is_valid_part1]
+    valid_entries = [e for e in entries if valid_part1(e)]
     return len(valid_entries)
 
 
 def part2(entries: [int]) -> int:
-    parsed_entries = [PasswordEntry(e) for e in entries]
-    valid_entries = [e for e in parsed_entries if e.is_valid_part2]
+    valid_entries = [e for e in entries if valid_part2(e)]
     return len(valid_entries)

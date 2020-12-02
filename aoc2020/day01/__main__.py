@@ -1,20 +1,5 @@
 from ..shared import read_input
-
-
-def part1(expenses: [int]) -> int:
-    for e1 in expenses:
-        for e2 in expenses:
-            if e1 + e2 == 2020:
-                return e1 * e2
-
-
-def part2(expenses: [int]) -> int:
-    for e1 in expenses:
-        for e2 in expenses:
-            for e3 in expenses:
-                if e1 + e2 + e3 == 2020:
-                    return e1 * e2 * e3
-
+from . import part1, part2
 
 if __name__ == "__main__":
     puzzle_input = read_input(__file__)

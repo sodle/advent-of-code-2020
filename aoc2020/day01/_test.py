@@ -3,7 +3,7 @@ import unittest
 from . import part1, part2
 
 
-class Day01(unittest.TestCase):
+class Test(unittest.TestCase):
     sample_input = [1721, 979, 366, 299, 675, 1456]
 
     def test_part1(self):

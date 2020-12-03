@@ -3,7 +3,7 @@ import unittest
 from . import part1, part2
 
 
-class Day02(unittest.TestCase):
+class Test(unittest.TestCase):
     sample_input = [
         "1-3 a: abcde",
         "1-3 b: cdefg",

@@ -1,5 +1,5 @@
 # Advent of Code 2020
-## Python solutions by Scott Odle
+Python solutions by Scott Odle
 
 ### Requirements:
 - Python 3

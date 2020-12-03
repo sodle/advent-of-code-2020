@@ -3,7 +3,7 @@ import unittest
 from . import follow_slope, part1, part2
 
 
-class Day03(unittest.TestCase):
+class Test(unittest.TestCase):
     sample_input = [
         "..##.......",
         "#...#...#..",

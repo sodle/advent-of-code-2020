@@ -1,3 +1,4 @@
+from functools import reduce
 from pathlib import Path
 
 
@@ -12,3 +13,7 @@ def read_input_strings(puzzle_filename: str) -> [str]:
         puzzle_input = input_file.read()
         lines = puzzle_input.split('\n')
         return [line for line in lines if len(line) > 0]
+
+
+def cumulative_product(terms: [int]) -> int:
+    return reduce(lambda a, b: a * b, terms)

@@ -1,17 +1,6 @@
 import re
 
-
-def split_on_blank_lines(lines: [str]) -> [str]:
-    batch = []
-    for line in lines:
-        if len(line) == 0:
-            if len(batch) > 0:
-                yield batch
-            batch = []
-        else:
-            batch.append(line)
-    if len(batch) > 0:
-        yield batch
+from aoc2020.shared import split_on_blank_lines
 
 
 def parse_passport(lines: [str]) -> dict:

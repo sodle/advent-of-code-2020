@@ -1,6 +1,7 @@
 import unittest
 
-from . import split_on_blank_lines, parse_passport, is_passport_valid, part1, part2
+from . import parse_passport, is_passport_valid, part1, part2
+from aoc2020.shared import split_on_blank_lines
 
 
 class Test(unittest.TestCase):

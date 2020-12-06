@@ -17,3 +17,16 @@ def read_input_strings(puzzle_filename: str, preserve_newlines=False) -> [str]:
 
 def cumulative_product(terms: [int]) -> int:
     return reduce(lambda a, b: a * b, terms)
+
+
+def split_on_blank_lines(lines: [str]) -> [str]:
+    batch = []
+    for line in lines:
+        if len(line) == 0:
+            if len(batch) > 0:
+                yield batch
+            batch = []
+        else:
+            batch.append(line)
+    if len(batch) > 0:
+        yield batch

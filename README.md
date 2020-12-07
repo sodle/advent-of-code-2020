@@ -4,6 +4,7 @@ Python solutions by Scott Odle
 ### Requirements:
 - Python 3
 - pipenv
+- Drawing the graph in the Jupyter Notebook for Day 7 requires `graphviz`.
 
 ### Install dependencies:
 ```shell script

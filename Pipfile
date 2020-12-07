@@ -8,6 +8,9 @@ pandas = "*"
 numpy = "*"
 jupyter = "*"
 pytest = "*"
+networkx = "*"
+matplotlib = "*"
+pydot = "*"
 
 [dev-packages]
 

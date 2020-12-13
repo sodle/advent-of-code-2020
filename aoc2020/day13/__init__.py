@@ -67,8 +67,9 @@ def part2(bus_schedule: str) -> int:
     a, n = list(zip(*buses))
     # The theorem defines N as the product of the n-terms
     big_n = np.product(n)
-    # And m as N / n
-    m = big_n / n
+    # And m as N / n.
+    # Note the floor division, as the puzzle input numbers are too large for floating point division to be precise.
+    m = big_n // n
 
     # u, v are the Bezout pairs for each n, m.
     # We only need v, the larger one.
@@ -80,7 +81,5 @@ def part2(bus_schedule: str) -> int:
     # the solution is congruent to x modulo N
     x = sum(a * e)
 
-    print(f"N={big_n}")
     # Return the lowest positive number that satisfies the congruency
-    print(f"x={x}")
     return int(big_n - (x % big_n))

@@ -20,6 +20,8 @@ class Test(unittest.TestCase):
         assert part2("67,x,7,59,61") == 779210
         assert part2("67,7,x,59,61") == 1261476
         assert part2("1789,37,47,1889") == 1202161486
+        assert part2(
+            "41,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,37,x,x,x,x,x,659,x,x,x,x,x,x,x,23,x,x,x,x,13,x,x,x,x,x,19,x,x,x,x,x,x,x,x,x,29,x,937,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,17") == 756261495958122
 
     if __name__ == '__main__':
         unittest.main()

@@ -1,10 +1,12 @@
 import unittest
 
 from . import part1, part2
+from . import game_loop, game_loop_v2
 
 
 class Test(unittest.TestCase):
     def test_part1(self):
+        assert part1([0, 3, 6], target_index=10) == 0
         assert part1([0, 3, 6]) == 436
         assert part1([1, 3, 2]) == 1
         assert part1([2, 1, 3]) == 10
@@ -14,6 +16,7 @@ class Test(unittest.TestCase):
         assert part1([3, 1, 2]) == 1836
 
     def test_part2(self):
+        # Go get coffee. These will take forever.
         assert part2([0, 3, 6]) == 175594
         assert part2([1, 3, 2]) == 2578
         assert part2([2, 1, 3]) == 3544142

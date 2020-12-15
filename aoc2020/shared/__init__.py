@@ -15,6 +15,11 @@ def read_input_strings(puzzle_filename: str, preserve_newlines=False) -> [str]:
         return [line for line in lines if len(line) > 0 or preserve_newlines]
 
 
+def read_input_int_list(puzzle_filename: str) -> [int]:
+    line, = read_input_strings(puzzle_filename)
+    return [int(n) for n in line.split(",")]
+
+
 def cumulative_product(terms: [int]) -> int:
     return reduce(lambda a, b: a * b, terms)
 
